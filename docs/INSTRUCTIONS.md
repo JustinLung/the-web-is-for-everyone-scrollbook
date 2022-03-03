@@ -10,7 +10,7 @@ Scrollbook is een concept en interactief prototype ontwikkeld om jongeren te ent
 
 Ieder boek dat te vinden is in het prototype bevat een book-trailer/ book preview. Hierdoor kan de gebruiker een voorproefje ervaren van het boek, voordat zij hier tijd in investeren. Deze trailer moet de ervaring vergroten en het verhaal verkopen, zoals een film trailer dat ook zal doen. 
 
-Voor deze sprint ligt de focus op het dynamisch maken van de content. De verschillende booktrailers worden met client side JavaScript opgehaald uit de [ScrollBook REST API](url) en de HTML pagina's worden dynamisch gerender op basis van de data uit de API. 
+Voor deze sprint ligt de focus op het dynamisch maken van de content. De verschillende booktrailers worden met client side JavaScript opgehaald uit de [ScrollBook REST API](https://scrollbook.api.fdnd.nl/) en de HTML pagina's worden dynamisch gerender op basis van de data uit de API. 
 
 Experimenteer met verschillende vormen van digitaal lezen, interactie en animatie om het leesplezier onder jongeren te vergroten. Bouw de boek ervaring en test de werking hier van. Neem de prototype boek ervaringen als uitgangspunt en houd je aan de vastgestelde vormgeving en opzet. 
  
