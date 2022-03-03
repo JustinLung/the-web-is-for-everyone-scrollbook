@@ -3,7 +3,7 @@
 ![ScrollBook](https://github.com/fdnd-task/the-startup-scrollbook/blob/cbd43c0fe60f97f8f9715fed8e85443dfc48d3ed/docs/scrollbook.png)
 
 ## Context
-Deze leertaak hoort bij sprint The Startup. Dit is een autonomous leertaak die je individueel uitvoert voor ScrollBook.
+Deze leertaak hoort bij sprint Keep Users in Control. Dit is een autonomous leertaak die je individueel uitvoert voor ScrollBook.
 
 ## Briefing
 Scrollbook is een concept en interactief prototype ontwikkeld om jongeren te enthousiasmeren om te lezen ter ontspanning en diep lezen te bevorderen. Deze kan individueel gebruikt worden op tablet om de grootte van een boek te imiteren en daarbij de ervaring te vergroten. 
