@@ -17,7 +17,7 @@ Experimenteer met verschillende vormen van digitaal lezen, interactie en animati
 Je presenteert je bevindingen in een werkend HTML, CSS en JavaScript prototype.
 
 ## Doel van deze opdracht
-Je leert hoe je een prototype maakt op basis van een user story en externe data uit een API
+Je leert hoe je een prototype maakt op basis van een user story en externe data uit een API.
 
 ## Planning
 
