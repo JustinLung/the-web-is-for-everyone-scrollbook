@@ -7,12 +7,14 @@ Deze leertaak hoort bij sprint The Startup. Dit is een autonomous leertaak die j
 
 ## Briefing
 Scrollbook is een concept en interactief prototype ontwikkeld om jongeren te enthousiasmeren om te lezen ter ontspanning en diep lezen te bevorderen. Deze kan individueel gebruikt worden op tablet om de grootte van een boek te imiteren en daarbij de ervaring te vergroten. 
- 
-Voor deze sprint ligt de focus op de book trailer. Ieder boek dat te vinden is in het prototype bevat een book-trailer/ book preview. Hierdoor kan de gebruiker een voorproefje ervaren van het boek, voordat zij hier tijd in investeren. Deze trailer moet de ervaring vergroten en het verhaal verkopen, zoals een film trailer dat ook zal doen. 
- 
+
+Ieder boek dat te vinden is in het prototype bevat een book-trailer/ book preview. Hierdoor kan de gebruiker een voorproefje ervaren van het boek, voordat zij hier tijd in investeren. Deze trailer moet de ervaring vergroten en het verhaal verkopen, zoals een film trailer dat ook zal doen. 
+
+Voor deze sprint ligt de focus op het dynamisch maken van de content. De verschillende booktrailers worden met client side JavaScript opgehaald uit de [ScrollBook REST API](url) en de HTML pagina's worden dynamisch gerender op basis van de data uit de API. 
+
 Experimenteer met verschillende vormen van digitaal lezen, interactie en animatie om het leesplezier onder jongeren te vergroten. Bouw de boek ervaring en test de werking hier van. Neem de prototype boek ervaringen als uitgangspunt en houd je aan de vastgestelde vormgeving en opzet. 
  
-Je presenteert je bevindingen in een werkend HTML, CSS en JavaScript prototype. 
+Je presenteert je bevindingen in een werkend HTML, CSS en JavaScript prototype.
 
 ## Doel van deze opdracht
 Je leert hoe je een prototype maakt op basis van een user story en externe data uit een API
