@@ -3,7 +3,7 @@ title: "Interactive book trailer"
 client: "ScrollBook"          
 description: "Bouw een interactieve book trailer op basis van data van een externe API"    
 semester: 2                       
-sprint: 8                       
+sprint: 9                       
 support-level: 5                 
 behavior-criteria:                  
   collaboration: 5                
