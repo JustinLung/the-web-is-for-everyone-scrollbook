@@ -1,4 +1,4 @@
-# ScrollBook Interactive Book Trailer Dashboard
+# ScrollBook Bookshelf
 
 ![ScrollBook](https://github.com/fdnd-task/the-startup-scrollbook/blob/cbd43c0fe60f97f8f9715fed8e85443dfc48d3ed/docs/scrollbook.png)
 
