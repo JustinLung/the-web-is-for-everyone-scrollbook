@@ -29,7 +29,6 @@ git clone https://github.com/JustinLung/the-web-is-for-everyone-scrollbook.git
 
 # Moving to the folder
 cd the-web-is-for-everyone-scrollbook
-
 ```
 
 ## Bronnen
