@@ -32,6 +32,8 @@ cd the-web-is-for-everyone-scrollbook
 ```
 
 ## Bronnen
+- [🍉 Scrollbook API](https://github.com/fdnd-apis/scrollbook)
+- [🙊Scrollbook Prototype](https://joopakerboom.nl/scrollbook-v3/presentation.html)
 
 ## Licentie
 
