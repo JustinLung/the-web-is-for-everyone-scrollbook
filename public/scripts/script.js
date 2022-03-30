@@ -3,7 +3,7 @@ const scene = new THREE.Scene()
 scene.background = new THREE.Color(0xffffff)
 
 /* Camera & Renderer ====================================================== */
-const camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(140, window.innerWidth / window.innerHeight, 0.1, 1000)
 const renderer = new THREE.WebGLRenderer({alpha: true})
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setClearColor(0x000000, 0)
@@ -17,25 +17,113 @@ controls.enableDamping = true
 controls.mouseButtons = {LEFT: THREE.MOUSE.PAN}
 controls.touches = {ONE: THREE.TOUCH.PAN}
 controls.panSpeed = .4
-
-/* Geometries ====================================================== */
-// const geometry = drawSquare(3,3,7,7)
-// const material = new THREE.MeshBasicMaterial({color: 0x000, side: THREE.DoubleSide})
-// const mesh = new THREE.Mesh(geometry, material)
+controls.dampingFactor = 0.03
 
 /* Drawing image ====================================================== */
 const loader = new THREE.TextureLoader()
+const books = [
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  },
+  {
+    title: 'IT',
+    cover: '/assets/ipad.png'
+  }
+]
 
-const material = new THREE.MeshBasicMaterial({map: loader.load('/assets/it-cover.png'), transparent: true})
-const geometry = new THREE.PlaneGeometry(10, 10*.75)
-const mesh = new THREE.Mesh(geometry, material)
+/* Setting up Raycaster for events ====================================================== */
+const raycaster = new THREE.Raycaster()
+const mouse = new THREE.Vector2()
 
-var light = new THREE.PointLight(0xffffff, 1, 0)
+const group = new THREE.Group()
+for (let i = 0; i < books.length; i++) {
+  const material = new THREE.MeshBasicMaterial({map: loader.load('/assets/ipad.png'), transparent: true})
+  const geometry = new THREE.PlaneGeometry(7.04,12 *.75)
+  const mesh = new THREE.Mesh(geometry, material)
+
+  mesh.callback = function() {
+    console.log('Hallo meneer mesh', i)
+  }
+
+  const rowLengths = [3,4]
+  const [x,y] = getBookPositionCool(i, rowLengths)
+  const offsets = [0, .5]
+  mesh.position.x = x * 9
+  mesh.position.y = y * 11 - (offsets[x % rowLengths.length] * 11)
+  // mesh.position.y = x % 2 == 0 ? (y + .5) * 11   : y * 11
+
+  group.add(mesh)
+}
+
+new THREE.Box3().setFromObject(group).getCenter(group.position).multiplyScalar(-1)
+scene.add(group)
+
+const light = new THREE.PointLight(0xffffff, 1, 0)
 light.position.set(1, 1, 100 )
 scene.add(light)
 
 /* Adding meshes ====================================================== */
-scene.add( mesh )
 
 /* Updating camera and Controls ====================================================== */
 camera.position.z = 5
@@ -52,25 +140,11 @@ function animate() {
 /* Logic ====================================================== */
 window.addEventListener('load', onWindowResize)
 window.addEventListener('resize', onWindowResize)
+window.addEventListener('click', onMouseClick)
 animate()
 
 
 /* Methods ====================================================== */
-function drawSquare(x1, y1, x2, y2) {
-
-  const square = new THREE.BufferGeometry()
-  const vertices = new Float32Array( [
-    -1.0, -1.0,  1.0,
-     1.0, -1.0,  1.0,
-     1.0,  1.0,  1.0,
-  
-     1.0,  1.0,  1.0,
-    -1.0,  1.0,  1.0,
-    -1.0, -1.0,  1.0
-  ] )
-  square.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) )
-  return square
-}
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight
@@ -78,4 +152,61 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight )
 
   animate()
+}
+
+function onMouseClick(event) {
+
+  event.preventDefault();
+
+  mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1
+  mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1
+
+  raycaster.setFromCamera(mouse, camera)
+
+  const intersects = raycaster.intersectObjects(group.children)
+
+  if(intersects.length > 0) {
+    intersects[0].object.callback()
+  }
+}
+
+function getBookPosition(index) {
+  const EVEN_ROW_LENGTH = 3
+  const ODD_ROW_LENGTH = 4
+
+  const subRow = Math.floor(index / (EVEN_ROW_LENGTH + ODD_ROW_LENGTH))
+  const subColumn = index % (EVEN_ROW_LENGTH + ODD_ROW_LENGTH)
+  
+  const evenRow = subColumn < EVEN_ROW_LENGTH
+
+  let row = subRow * 2
+  if(!evenRow) row++
+
+  let column = subColumn
+  if(!evenRow) column -= EVEN_ROW_LENGTH
+
+  return [row, column]
+}
+
+function getBookPositionCool(index, sequence) {
+  const sequencePositionLength = sequence.reduce((prev, curr) => prev+curr)
+
+  const sequenceRow = Math.floor(index / sequencePositionLength)
+  const sequenceColumn = index % sequencePositionLength
+
+  let accumulative = 0
+  let sequenceIndex = 0
+
+  for (let i = 0; i < sequence.length; i++) {
+    const length = sequence[i]
+    accumulative += length
+    if(accumulative > sequenceColumn) break;
+    sequenceIndex++
+  }
+
+  row = sequenceRow * sequence.length + sequenceIndex
+  const slicedSequence = sequence.slice(0, sequenceIndex)
+  column = sequenceColumn - (slicedSequence.length > 0 ? slicedSequence.reduce((prev, curr) => prev+curr) : 0)
+
+  return [row, column]
 }
