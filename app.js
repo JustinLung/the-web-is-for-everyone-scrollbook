@@ -1,8 +1,6 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const fetch = (...args) =>
-  import('node-fetch').then(({ default: fetch }) => fetch(...args))
 const PORT = process.env.PORT || 3000
 
 //Routes
@@ -15,10 +13,3 @@ app.use(express.static(path.join(__dirname + '/public')))
 app.use('/', indexRoute)
 
 app.listen(PORT, () => console.log(`Listening on http://[::]:${PORT}`))
-
-// Here comes the fetchData function
-async function getData(url) {
-  return await fetch(url)
-    .then((response) => response.json)
-    .catch((error) => error)
-}

@@ -1,11 +1,16 @@
 const express = require('express')
 const router = express.Router()
+const { getAllBooks } = require('./../modules/api')
 
 router
 
 .get('/', (req, res) => {
-    res.render('index', {
-        title: "Home"
+    getAllBooks().then(data=>{
+      console.log(data);
+      res.render('index', {
+          title: "Home",
+          books: data
+      })
     })
 })
 
