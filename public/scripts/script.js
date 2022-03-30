@@ -12,7 +12,7 @@ document.body.appendChild(renderer.domElement)
 /* Controls ====================================================== */
 const controls = new THREE.OrbitControls( camera, renderer.domElement )
 controls.enableRotate = false
-controls.enableZoom = false
+// controls.enableZoom = false
 controls.enableDamping = true
 controls.mouseButtons = {LEFT: THREE.MOUSE.PAN}
 controls.touches = {ONE: THREE.TOUCH.PAN}
@@ -106,7 +106,7 @@ for (let i = 0; i < books.length; i++) {
     console.log('Hallo meneer mesh', i)
   }
 
-  const rowLengths = [3,4]
+  const rowLengths = [4,4]
   const [x,y] = getBookPositionCool(i, rowLengths)
   const offsets = [0, .5]
   mesh.position.x = x * 9
