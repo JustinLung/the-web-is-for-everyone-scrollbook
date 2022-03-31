@@ -103,10 +103,10 @@ for (let i = 0; i < books.length; i++) {
   const mesh = new THREE.Mesh(geometry, material)
 
   mesh.callback = function() {
-    console.log('Hallo meneer mesh', i)
+    window.location.href = `/book/${books[i].title}`
   }
 
-  const rowLengths = [4,4]
+  const rowLengths = [3,4]
   const [x,y] = getBookPositionCool(i, rowLengths)
   const offsets = [0, .5]
   mesh.position.x = x * 9
@@ -123,7 +123,12 @@ const light = new THREE.PointLight(0xffffff, 1, 0)
 light.position.set(1, 1, 100 )
 scene.add(light)
 
-/* Adding meshes ====================================================== */
+/* Animating meshes ====================================================== */
+
+for (let i = 0; i < group.children.length; i++) {
+  gsap.fromTo(group.children[i].material, {opacity: 0}, {opacity: 1, delay: i * .1})
+  gsap.fromTo(group.children[i].position, {z: 1.5}, {z: 1, delay: i * .1})
+}
 
 /* Updating camera and Controls ====================================================== */
 camera.position.z = 5
@@ -140,9 +145,8 @@ function animate() {
 /* Logic ====================================================== */
 window.addEventListener('load', onWindowResize)
 window.addEventListener('resize', onWindowResize)
-window.addEventListener('click', onMouseClick)
+renderer.domElement.addEventListener('click', onMouseClick)
 animate()
-
 
 /* Methods ====================================================== */
 
