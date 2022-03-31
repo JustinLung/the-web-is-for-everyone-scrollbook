@@ -12,7 +12,7 @@ document.body.appendChild(renderer.domElement)
 /* Controls ====================================================== */
 const controls = new THREE.OrbitControls( camera, renderer.domElement )
 controls.enableRotate = false
-// controls.enableZoom = false
+controls.enableZoom = false
 controls.enableDamping = true
 controls.mouseButtons = {LEFT: THREE.MOUSE.PAN}
 controls.touches = {ONE: THREE.TOUCH.PAN}
