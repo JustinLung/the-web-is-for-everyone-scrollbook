@@ -14,8 +14,16 @@
 <body>
   <header>
     <a href="/"><img src="/assets/scrollbook-logo.png" alt="Scrollbook Logo"></a>
-    <input type="checkbox" id="hamburger">
-    <label for="hamburger">
+    <input type="checkbox" id="hamburger" class="hamburger-checkbox">
+    <input type="checkbox" id="search" class="search-checkbox">
+    <label class="search" for="search">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="10" cy="10" r="7" />
+        <line x1="21" y1="21" x2="15" y2="15" />
+      </svg>
+    </label>
+    <label class="hamburger" for="hamburger">
       <ul>
         <li></li>
         <li></li>
@@ -23,7 +31,14 @@
       </ul>
     </label>
     <nav>
-      <h1>Scrollbook</h1>
-      <p>Ik wil eten</p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Books</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Contact</a></li>
+      </ul>
     </nav>
+    <form>
+      <input type="text" placeholder="Search for a book title...">
+    </form>
   </header>

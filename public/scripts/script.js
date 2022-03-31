@@ -103,8 +103,12 @@ for (let i = 0; i < books.length; i++) {
   const mesh = new THREE.Mesh(geometry, material)
 
   mesh.callback = function() {
-    window.location.href = `/book/${books[i].title}`
-  }
+    gsap.to(group.children[i].material, {opacity: 0})
+    gsap.to(group.children[i].position, {z: 2})
+      setTimeout(()=>{
+        window.location.href = `/book/${books[i].title}`
+      }, 1100)
+    }
 
   const rowLengths = [3,4]
   const [x,y] = getBookPositionCool(i, rowLengths)
