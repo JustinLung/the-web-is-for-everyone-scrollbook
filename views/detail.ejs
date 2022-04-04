@@ -1,8 +1,25 @@
 <%- include('partials/header.ejs') %>
 
-<main>
-  <h1><%= title %></h1>
-  <p>No stutter, slain from the gutter</p>
-</main>
+  <main class="detail-main">
+    <figure>
+      <img src="/assets/the-shining-book-cover.svg" alt="Book Cover" class="book-cover">
+    </figure>
+    <section class="detail-section">
+      <p>1977</p>
+      <p>Stephen King's</p>
+      <h2>The Shining</h2>
+      <p class="synopsis-heading">Synopsis</p>
+      <p class="synopsis">The Shining centers on the life of Jack Torrance, an aspiring writer and recovering alcoholic
+        who accepts a
+        position as
+        the off-season caretaker of the historic Overlook Hotel.</p>
+      <p class="rate-heading">Rating</p>
+      <a href="/" class="cta">Try Book Preview</a>
+    </section>
+    <div class="arrow-container">
+      <a href="/"><img src="/assets/arrow-left.svg" alt="Arrow Left" class="arrow-left">Previous Book</a>
+      <a href="/"><img src="/assets/arrow-right.svg" alt="Arrow Right" class="arrow-right">Right Book</a>
+    </div>
+  </main>
 
-<%- include('partials/footer.ejs') %>
+  <%- include('partials/footer.ejs') %>

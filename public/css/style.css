@@ -83,7 +83,7 @@ header label > ul li:nth-child(3) {
   bottom: 0;
 }
 
-header input[type="checkbox"] {
+header input[type='checkbox'] {
   display: none;
 }
 
@@ -102,7 +102,7 @@ header .hamburger-checkbox:checked ~ .hamburger ul li:nth-child(3) {
 }
 
 header > nav {
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -137,12 +137,12 @@ header > nav ul li a {
 header .hamburger-checkbox:checked ~ nav {
   opacity: 1;
   transform: scale(1);
-  backdrop-filter: blur(.25em);
+  backdrop-filter: blur(0.25em);
   pointer-events: all;
 }
 
 header form {
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -162,7 +162,7 @@ header form {
 
 header .search-checkbox:checked ~ form {
   opacity: 1;
-  backdrop-filter: blur(.25em);
+  backdrop-filter: blur(0.25em);
   pointer-events: all;
 }
 
@@ -173,5 +173,151 @@ form input {
   background-color: transparent;
   font-size: 1.8rem;
   width: 80%;
-  padding: .8em .5em;
+  padding: 0.8em 0.5em;
+}
+
+/* Detail Page */
+
+.detail-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3em;
+}
+
+.detail-main h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.detail-main p {
+  padding: 0;
+  margin: 0;
+}
+
+figure,
+.detail-section {
+  width: 50%;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+figure img {
+  width: 20em;
+  animation: up-and-down 2s ease-in-out infinite alternate;
+}
+
+@keyframes up-and-down {
+  from {
+    transform: translateY(-1em);
+  }
+  to {
+    transform: translateY(1em);
+  }
+}
+
+.cta {
+  color: #fff;
+  background-color: #1a1a1a;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #1a1a1a;
+  transition: 0.2s ease-in-out;
+}
+
+.cta:hover {
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+}
+
+.detail-main h2 {
+  font-size: 2rem;
+  padding-bottom: 0.5em !important;
+}
+
+.detail-main p {
+  font-size: 1.2rem;
+}
+
+.rate-heading,
+.synopsis-heading {
+  font-size: 1.5rem !important;
+  font-weight: bold;
+}
+
+.rate-heading {
+  padding: 1em 0 !important;
+}
+
+.synopsis {
+  max-width: 30em;
+}
+
+.arrow-container {
+  position: absolute;
+  bottom: -5em;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.arrow-container img {
+  width: 8em;
+  transition: 0.3s ease;
+}
+
+.arrow-container .arrow-left:hover {
+  transform: translateX(-0.5em);
+}
+
+.arrow-container .arrow-right:hover {
+  transform: translateX(0.5em) !important;
+}
+
+.arrow-container a {
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  gap: 1em;
+}
+
+.arrow-container a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+}
+
+.arrow-container a:nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+@media (orientation: portrait) {
+  .detail-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  figure img {
+    margin-bottom: 2em;
+    width: 15em;
+  }
+
+  .detail-main h2 {
+    font-size: 2.5rem;
+  }
+
+  .detail-main p {
+    font-size: 1.4rem;
+  }
 }
