@@ -309,6 +309,11 @@ figure img {
     text-align: center;
   }
 
+  .detail-section {
+    width: auto;
+    max-width: 32em;
+  }
+
   figure img {
     margin-bottom: 2em;
     width: 15em;
