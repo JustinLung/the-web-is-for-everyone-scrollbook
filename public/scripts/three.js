@@ -67,7 +67,7 @@ async function setGroup() {
       gsap.to(group.children[i].material, {opacity: 0})
       gsap.to(group.children[i].position, {z: 2})
         setTimeout(()=>{
-          window.location.href = `/book/${i}`
+          window.location.href = `/book/${i + 1}`
         }, 1100)
       }
 
