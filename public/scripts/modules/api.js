@@ -1,14 +1,7 @@
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args))
 const baseUrl = 'https://scrollbook.api.fdnd.nl/v1'
-
 
 async function getAllBooks() {
   return await fetchJson(`${baseUrl}/book`)
-}
-
-async function getBookById(id) {
-  console.log(await fetchJson(`${baseUrl}/book/${id}`))
-  return await fetchJson(`${baseUrl}/book/${id}`)
 }
 
 async function fetchJson(url) {
@@ -18,7 +11,6 @@ async function fetchJson(url) {
     .catch((error) => error)
 }
 
-module.exports = {
-  getAllBooks,
-  getBookById
+export {
+  getAllBooks
 }
