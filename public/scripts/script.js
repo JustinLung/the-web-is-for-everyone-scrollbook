@@ -1,6 +1,7 @@
+import { getAllBooks } from './modules/api.js'
 /* Scene ====================================================== */
 const scene = new THREE.Scene()
-scene.background = new THREE.Color(0xffffff)
+scene.background = new THREE.Color(0x171919)
 
 /* Camera & Renderer ====================================================== */
 const camera = new THREE.PerspectiveCamera(140, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -21,118 +22,19 @@ controls.dampingFactor = 0.03
 
 /* Drawing image ====================================================== */
 const loader = new THREE.TextureLoader()
-const books = [
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  },
-  {
-    title: 'IT',
-    cover: '/assets/ipad.png'
-  }
-]
 
 /* Setting up Raycaster for events ====================================================== */
 const raycaster = new THREE.Raycaster()
 const mouse = new THREE.Vector2()
 
 const group = new THREE.Group()
-for (let i = 0; i < books.length; i++) {
-  const material = new THREE.MeshBasicMaterial({map: loader.load('/assets/ipad.png'), transparent: true})
-  const geometry = new THREE.PlaneGeometry(7.04,12 *.75)
-  const mesh = new THREE.Mesh(geometry, material)
-
-  mesh.callback = function() {
-    gsap.to(group.children[i].material, {opacity: 0})
-    gsap.to(group.children[i].position, {z: 2})
-      setTimeout(()=>{
-        window.location.href = `/book/${books[i].title}`
-      }, 1100)
-    }
-
-  const rowLengths = [3,4]
-  const [x,y] = getBookPositionCool(i, rowLengths)
-  const offsets = [0, .5]
-  mesh.position.x = x * 9
-  mesh.position.y = y * 11 - (offsets[x % rowLengths.length] * 11)
-  // mesh.position.y = x % 2 == 0 ? (y + .5) * 11   : y * 11
-
-  group.add(mesh)
-}
-
-new THREE.Box3().setFromObject(group).getCenter(group.position).multiplyScalar(-1)
-scene.add(group)
-
+setGroup()
 const light = new THREE.PointLight(0xffffff, 1, 0)
 light.position.set(1, 1, 100 )
 scene.add(light)
 
 /* Animating meshes ====================================================== */
 
-for (let i = 0; i < group.children.length; i++) {
-  gsap.fromTo(group.children[i].material, {opacity: 0}, {opacity: 1, delay: i * .1})
-  gsap.fromTo(group.children[i].position, {z: 1.5}, {z: 1, delay: i * .1})
-}
 
 /* Updating camera and Controls ====================================================== */
 camera.position.z = 5
@@ -153,6 +55,38 @@ renderer.domElement.addEventListener('click', onMouseClick)
 animate()
 
 /* Methods ====================================================== */
+async function setGroup() {
+  const books = await getAllBooks()
+  for (let i = 0; i < books.length; i++) {
+    const material = new THREE.MeshBasicMaterial({map: loader.load('/assets/ipad.png'), transparent: true})
+    const geometry = new THREE.PlaneGeometry(7.04,12 *.75)
+    const mesh = new THREE.Mesh(geometry, material)
+
+    mesh.callback = function() {
+      gsap.to(group.children[i].material, {opacity: 0})
+      gsap.to(group.children[i].position, {z: 2})
+        setTimeout(()=>{
+          window.location.href = `/book/${i}`
+        }, 1100)
+      }
+
+    const rowLengths = [3,4]
+    const [x,y] = getBookPositionCool(i, rowLengths)
+    const offsets = [0, .5]
+    mesh.position.x = x * 9
+    mesh.position.y = y * 11 - (offsets[x % rowLengths.length] * 11)
+    // mesh.position.y = x % 2 == 0 ? (y + .5) * 11   : y * 11
+
+    group.add(mesh)
+  }
+  new THREE.Box3().setFromObject(group).getCenter(group.position).multiplyScalar(-1)
+  scene.add(group)
+
+  for (let i = 0; i < group.children.length; i++) {
+    gsap.fromTo(group.children[i].material, {opacity: 0}, {opacity: 1, delay: i * .1})
+    gsap.fromTo(group.children[i].position, {z: 1.5}, {z: 1, delay: i * .1}) 
+  }
+}
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight
@@ -212,9 +146,9 @@ function getBookPositionCool(index, sequence) {
     sequenceIndex++
   }
 
-  row = sequenceRow * sequence.length + sequenceIndex
+  const row = sequenceRow * sequence.length + sequenceIndex
   const slicedSequence = sequence.slice(0, sequenceIndex)
-  column = sequenceColumn - (slicedSequence.length > 0 ? slicedSequence.reduce((prev, curr) => prev+curr) : 0)
+  const column = sequenceColumn - (slicedSequence.length > 0 ? slicedSequence.reduce((prev, curr) => prev+curr) : 0)
 
   return [row, column]
 }
