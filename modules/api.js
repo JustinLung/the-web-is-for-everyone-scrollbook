@@ -7,7 +7,6 @@ async function getAllBooks() {
 }
 
 async function getBookById(id) {
-  console.log(await fetchJson(`${baseUrl}/book/${id}`))
   return await fetchJson(`${baseUrl}/book/${id}`)
 }
 

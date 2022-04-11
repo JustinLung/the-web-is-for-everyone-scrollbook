@@ -2,23 +2,34 @@
 
   <main class="detail-main">
     <figure>
-      <img src="/assets/the-shining-book-cover.svg" alt="Book Cover" class="book-cover">
+      <img src="<%= book[0].book_cover %>" alt="Book Cover" class="book-cover">
     </figure>
     <section class="detail-section">
-      <p>1977</p>
-      <p>Stephen King's</p>
-      <h2>The Shining</h2>
+      <p class="year">
+        <%= book[0].release_date.slice(0, 4) %>
+      </p>
+      <p class="writer">
+        <%= `${book[0].author_name} ${book[0].author_surname}` %>
+      </p>
+      <h2 class="book-title">
+        <%= book[0].name %>
+      </h2>
       <p class="synopsis-heading">Synopsis</p>
-      <p class="synopsis">The Shining centers on the life of Jack Torrance, an aspiring writer and recovering alcoholic
-        who accepts a
-        position as
-        the off-season caretaker of the historic Overlook Hotel.</p>
+      <p class="synopsis">
+        <%= book[0].synopsis %>
+      </p>
       <p class="rate-heading">Rating</p>
       <a href="/" class="cta">Try Book Preview</a>
     </section>
     <div class="arrow-container">
-      <a href="/"><img src="/assets/arrow-left.svg" alt="Arrow Left" class="arrow-left">Previous Book</a>
-      <a href="/"><img src="/assets/arrow-right.svg" alt="Arrow Right" class="arrow-right">Right Book</a>
+      <% if(previous.length !==0) { %>
+        <a href="/book/<%= previous[0].book_id %> "><img src="/assets/arrow-left.svg" alt="Arrow Left"
+            class="arrow-left">Previous Book</a>
+        <% } %>
+          <% if(next.length !==0) { %>
+            <a href="/book/<%= next[0].book_id %> "><img src="/assets/arrow-right.svg" alt="Arrow Right"
+                class="arrow-right">Next Book</a>
+            <% } %>
     </div>
   </main>
 

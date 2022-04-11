@@ -241,6 +241,7 @@ figure img {
 .detail-main h2 {
   font-size: 2rem;
   padding-bottom: 0.5em !important;
+  max-width: 30em;
 }
 
 .detail-main p {
