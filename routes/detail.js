@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getBookById, getAllBooks } = require('./../modules/api')
+const { getBookById } = require('./../modules/api')
 
 router
 
