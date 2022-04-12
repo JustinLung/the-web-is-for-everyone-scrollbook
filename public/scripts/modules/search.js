@@ -23,7 +23,7 @@ function debounce(func, timeout = 200){
 
 function render(books) {
   searchResults.innerHTML = ''
-  if(books.length === 0) searchResults.innerText = 'No results found :('
+  if(books.length === 0) searchResults.innerText = 'No results found 😢'
   books.forEach(book=>{
     searchResults.insertAdjacentHTML('beforeend', `
       <li>${book.name}</li>
