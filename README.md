@@ -1,5 +1,7 @@
 # 🖱️ Scrollbook Dashboard
 
+![Scrollbook Mockup](https://github.com/JustinLung/the-web-is-for-everyone-scrollbook/blob/main/docs/scrollbook-mockup.png?raw=true)
+
 ## 📚 Inhoudsopgave
 
   * [Beschrijving](#beschrijving)
@@ -14,6 +16,8 @@ Dit is de repo voor de Scrollbook Dashboard applicatie waar de content wordt ger
 [🌐 Live]()
 
 ## 🔮 Kenmerken
+
+### Code Skills
 * 📙 HTML
 * 📘 CSS
 * 🚀 JavaScript
@@ -21,6 +25,11 @@ Dit is de repo voor de Scrollbook Dashboard applicatie waar de content wordt ger
 * 🍕 NodeJS
 * 🤳 EJS
 * 😺 Express
+* 🌲 Three.js
+
+### Design Skills
+* 🚀 Figma
+* 🎆 Photoshop
 
 ## ⚡ Installatie & Gebruik
 ```
@@ -29,13 +38,19 @@ git clone https://github.com/JustinLung/the-web-is-for-everyone-scrollbook.git
 
 # Moving to the folder
 cd the-web-is-for-everyone-scrollbook
+
+# Install NPM packages
+npm install
+
+# Run local server
+npm run start
 ```
 
-## Bronnen
+## 🎉 Bronnen
 - [🍉 Scrollbook API](https://github.com/fdnd-apis/scrollbook)
 - [🙊Scrollbook Prototype](https://joopakerboom.nl/scrollbook-v3/presentation.html)
 
-## Licentie
+## 🖼 Licentie
 
 ![GNU GPL V3](https://www.gnu.org/graphics/gplv3-127x51.png)
 
