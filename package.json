@@ -14,7 +14,7 @@
     "url": "git+https://github.com/JustinLung/the-web-is-for-everyone-scrollbook.git"
   },
   "keywords": ["Scrollbook", "Scrollbook Dashboard", "NodeJS", "Express"],
-  "author": "",
+  "author": "Daan Korver & Justin Lung",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JustinLung/the-web-is-for-everyone-scrollbook/issues"
