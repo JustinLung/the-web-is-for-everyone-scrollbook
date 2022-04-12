@@ -309,7 +309,7 @@ figure img {
 
 .arrow-container a {
   text-decoration: none;
-  color: #1a1a1a;
+  color: var(--dark-grey);
   font-size: 1.2rem;
 }
 
@@ -317,10 +317,30 @@ figure img {
   flex-direction: row-reverse;
 }
 
+/* 404 PAGE */
+
+.error-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30em;
+}
+.error-heading {
+  font-size: 2.2em;
+  max-width: 15em;
+  padding: 0;
+}
+
+.error-paragraph {
+  padding: 0;
+  max-width: 30em;
+}
+
 /* PORTRAIT ORIENTATION */
 
 @media (orientation: portrait) {
-  .detail-main {
+  .detail-main,
+  .error-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -328,7 +348,8 @@ figure img {
     text-align: center;
   }
 
-  .detail-section {
+  .detail-section,
+  .error-section {
     width: auto;
     max-width: 32em;
   }
