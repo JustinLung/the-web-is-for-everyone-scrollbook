@@ -336,6 +336,18 @@ figure img {
   max-width: 30em;
 }
 
+/* ABOUT PAGE */
+
+.about-main {
+  padding: 3em;
+  margin: 0 auto;
+  max-width: 50em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* PORTRAIT ORIENTATION */
 
 @media (orientation: portrait) {
