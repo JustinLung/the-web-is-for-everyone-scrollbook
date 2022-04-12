@@ -251,10 +251,11 @@ figure img {
   color: var(--dark-grey);
 }
 
-.detail-main h2 {
+.detail-main h1 {
   font-size: 2rem;
-  padding-bottom: 0.5em !important;
   max-width: 30em;
+  margin: 0;
+  padding-bottom: 0.5em;
 }
 
 .detail-main p {
