@@ -7,8 +7,10 @@ function render(books, searchValue) {
       `
 
       <li>
+      <a href="/book/${book.book_id}">
         <img src="https://raw.githubusercontent.com/JustinLung/the-web-is-for-everyone-scrollbook/${book.book_cover}" />
         <p>${book.name}</p>
+      </a>
       </li>
     `
     )

@@ -48,10 +48,6 @@ header {
 
 header img {
   width: 8em;
-  /* padding: .5em;
-  background-color: rgba(255, 255, 255, .6);
-  backdrop-filter: blur(.5em);
-  border-radius: 1em; */
   user-select: none;
 }
 
@@ -185,12 +181,15 @@ header .search-checkbox:checked ~ form {
   flex-direction: column;
   gap: 2em;
   width: 80%;
+  list-style-type: none;
 }
 
-#searchResults li {
+#searchResults li a {
     display: flex;
     align-items: center;
     gap: 2em;
+    color: var(--dark-grey);
+    text-decoration: none;
 }
 
 #searchResults li img {
