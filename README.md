@@ -13,7 +13,6 @@
 
 ## 📃 Beschrijving
 Dit is de repo voor de Scrollbook Dashboard applicatie waar de content wordt gerenderd met behulp van de REST API & SSR.  
-[🌐 Live]()
 
 ## 🔮 Kenmerken
 
@@ -21,11 +20,11 @@ Dit is de repo voor de Scrollbook Dashboard applicatie waar de content wordt ger
 * 📙 HTML
 * 📘 CSS
 * 🚀 JavaScript
-* 💤 REST API
-* 🍕 NodeJS
-* 🤳 EJS
-* 😺 Express
-* 🌲 Three.js
+* [🌲 Three.js](https://threejs.org/)
+* [💤 REST API](https://github.com/fdnd-apis/scrollbook)
+* [🍕 NodeJS](https://nodejs.org/en/)
+* [🤳 EJS](https://ejs.co/)
+* [😺 Express](https://expressjs.com/)
 
 ### Design Skills
 * 🚀 Figma
