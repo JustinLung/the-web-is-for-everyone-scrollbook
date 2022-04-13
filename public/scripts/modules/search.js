@@ -12,7 +12,7 @@ async function search(e) {
     const filteredBooks = books.filter((book) =>
       book.name.toLowerCase().includes(searchValue)
     )
-    render(filteredBooks)
+    render(filteredBooks, searchValue)
   }
 }
 

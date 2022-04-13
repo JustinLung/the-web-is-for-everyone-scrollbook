@@ -63,7 +63,8 @@ async function setGroup() {
   const books = await getAllBooks()
   for (let i = 0; i < books.length; i++) {
     const material = new THREE.MeshBasicMaterial({
-      map: loader.load('/assets/ipad.png'),
+      //map: loader.load('/assets/ipad.png'),
+      map: loader.load(`https://raw.githubusercontent.com/JustinLung/the-web-is-for-everyone-scrollbook/${books[i].book_cover}`),
       transparent: true,
     })
     const geometry = new THREE.PlaneGeometry(7.04, 12 * 0.75)
