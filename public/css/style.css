@@ -349,6 +349,25 @@ figure img {
   justify-content: center;
 }
 
+noscript {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: fixed !important;
+  background-color: var(--white);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+noscript img {
+  width: 10em;
+}
+
 /* PORTRAIT ORIENTATION */
 
 @media (orientation: portrait) {
